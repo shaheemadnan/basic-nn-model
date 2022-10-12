@@ -153,7 +153,7 @@ ai_brain.predict(input_scaled)
 ```
 ## Dataset Information
 
-Include screenshot of the dataset
+![image](https://user-images.githubusercontent.com/114155368/195388169-e07eaa9d-3f30-49ea-b27c-a5006e0fb9de.png)
 
 ## OUTPUT
 
@@ -166,7 +166,10 @@ Find the test data root mean squared error
 ![image](https://user-images.githubusercontent.com/114155368/195387643-0da88db5-1fea-4346-aa21-365312398042.png)
 
 ### New Sample Data Prediction
-
-Include your sample input and output here
+![image](https://user-images.githubusercontent.com/114155368/195388223-692bbc6f-348c-495b-b97a-7422b026a639.png)
+![image](https://user-images.githubusercontent.com/114155368/195388544-e350ca8b-2642-44b9-a220-982a479c272f.png)
 
 ## RESULT
+Thus, The given dataset is performed with a neural network regression model.
+
+
