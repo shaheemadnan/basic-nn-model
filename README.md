@@ -163,6 +163,7 @@ Include screenshot of the dataset
 ### Test Data Root Mean Squared Error
 
 Find the test data root mean squared error
+![image](https://user-images.githubusercontent.com/114155368/195387643-0da88db5-1fea-4346-aa21-365312398042.png)
 
 ### New Sample Data Prediction
 
