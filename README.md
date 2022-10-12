@@ -43,9 +43,114 @@ Plot the performance plot
 Evaluate the model with the testing data.
 
 ## PROGRAM
+```python
+import pandas as pd
+from google.colab import auth
+import gspread
+from google.auth import default
 
-Include your code here
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+import tensorflow as tf
 
+auth.aut
+worksheet = gc.open('firstdataset').sheet1
+rows = worksheet.get_all_values()
+
+
+df = pd.DataFrame(rows[1:], columns=rows[0])
+df.head(n=10)
+
+df.dtypes
+
+df = df.astype({'X':'float'})
+df = df.astype({'Y':'float'})
+
+df.dtypes
+
+X = df[['X']].values
+Y = df[['Y']].values
+
+X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=0.33,random_state=50)
+X_test.shape
+
+scaler = MinMaxScaler()
+scaler.fit(X_train)
+X_train_scaled = scaler.transform(X_train)
+X_train_scaled
+
+
+ai_brain = Sequential([
+    Dense(2,activation = 'relu'),
+    Dense(1,activation = 'relu')
+])
+ai_brain.compile(optimizer = 'rmsprop',loss = 'mse')
+ai_brain.fit(x = X_train_scaled,y = Y_train,epochs = 20000)
+loss_df = pd.DataFrame(ai_brain.history.history)
+loss_df.plot()
+X_test
+X_test_scaled = scaler.transform(X_test)
+X_test_scaled
+ai_brain.evaluate(X_test_scaled,Y_test)
+
+
+input = [[120]]
+input_scaled = scaler.transform(input)
+input_scaled.shape
+input_scaled
+ai_brain.predict(input_scaled)henticate_user()
+creds, _ = default()
+gc = gspread.authorize(creds)
+
+
+worksheet = gc.open('firstdataset').sheet1
+rows = worksheet.get_all_values()
+
+
+df = pd.DataFrame(rows[1:], columns=rows[0])
+df.head(n=10)
+
+df.dtypes
+
+df = df.astype({'X':'float'})
+df = df.astype({'Y':'float'})
+
+df.dtypes
+
+X = df[['X']].values
+Y = df[['Y']].values
+
+X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=0.33,random_state=50)
+X_test.shape
+
+scaler = MinMaxScaler()
+scaler.fit(X_train)
+X_train_scaled = scaler.transform(X_train)
+X_train_scaled
+
+
+ai_brain = Sequential([
+    Dense(2,activation = 'relu'),
+    Dense(1,activation = 'relu')
+])
+ai_brain.compile(optimizer = 'rmsprop',loss = 'mse')
+ai_brain.fit(x = X_train_scaled,y = Y_train,epochs = 20000)
+loss_df = pd.DataFrame(ai_brain.history.history)
+loss_df.plot()
+X_test
+X_test_scaled = scaler.transform(X_test)
+X_test_scaled
+ai_brain.evaluate(X_test_scaled,Y_test)
+
+
+input = [[120]]
+input_scaled = scaler.transform(input)
+input_scaled.shape
+input_scaled
+ai_brain.predict(input_scaled)
+```
 ## Dataset Information
 
 Include screenshot of the dataset
@@ -53,8 +158,7 @@ Include screenshot of the dataset
 ## OUTPUT
 
 ### Training Loss Vs Iteration Plot
-
-Include your plot here
+![image](https://user-images.githubusercontent.com/114155368/195387226-42af4637-f31d-4634-b9d9-8a1fd373737f.png)
 
 ### Test Data Root Mean Squared Error
 
